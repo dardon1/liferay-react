@@ -1,0 +1,49 @@
+{
+	"name": "react-project",
+	"version": "1.0.0",
+	"description": "React Project",
+	"devDependencies": {
+		"liferay-npm-bundler": "^2.25.0",
+		"liferay-npm-build-support": "^2.25.0",
+		"copy-webpack-plugin": "4.6.0",
+		"webpack": "4.29.6",
+		"webpack-cli": "3.3.0",
+		"webpack-dev-server": "3.2.1",
+		"@babel/cli": "^7.7.5",
+		"@babel/core": "^7.7.5",
+		"@babel/preset-env": "^7.7.6",
+		"@babel/preset-react": "^7.7.4"
+	},
+	"dependencies": {
+		"react": "16.8.6",
+		"react-dom": "16.8.6",
+		"apollo-boost": "^0.4.4",
+		"graphql": "^14.5.6",
+		"graphql-tag": "^2.10.1",
+		"react-apollo": "^3.1.1",
+		"@apollo/react-hooks": "^3.1.1",
+		"apollo-link-http": "1.5.16",
+		"apollo-link-context": "^1.0.19",
+		"apollo-cache-inmemory": "1.6.3",
+		"apollo-client": "2.6.4",
+		"react-bootstrap": "^1.6.0",
+		"react-router-dom": "^5.0.1",
+		"@types/react": "^16.8.0"
+	},
+	"scripts": {
+		"build": "babel --source-maps -d build src && npm run copy-assets && liferay-npm-bundler",
+		"copy-assets": "lnbs-copy-assets",
+		"translate": "lnbs-translate",
+		"deploy": "npm run build && lnbs-deploy",
+		"start": "lnbs-start"
+	},
+	"portlet": {
+		"com.liferay.portlet.display-category": "React",
+		"com.liferay.portlet.header-portlet-css": "/css/styles.css",
+		"com.liferay.portlet.instanceable": true,
+		"javax.portlet.name": "reactproject",
+		"javax.portlet.security-role-ref": "power-user,user",
+		"javax.portlet.resource-bundle": "content.Language"
+	},
+	"main": "index.js"
+}
